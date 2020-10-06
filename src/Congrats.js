@@ -1,5 +1,15 @@
 import React from "react";
 
-export default function Congrats() {
-  return <div></div>;
-}
+const Congrats = (props) => {
+  return (
+    <div data-test="component-congrats">
+      {props.success ? (
+        <span data-test="congrats-message">
+          Congratulations you guessed the word!
+        </span>
+      ) : null}
+    </div>
+  );
+};
+
+export default Congrats;

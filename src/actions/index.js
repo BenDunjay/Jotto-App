@@ -25,6 +25,13 @@ export const guessWord = (guessedWord) => {
 
 export const getSecretWord = () => {
   return (dispatch) => {
-    axios.get("http://localhost:3030"); // irrelevant http request as will always be using moxios
+    return axios
+      .get("http://localhost:3030") // irrelevant http request as will always be using moxios
+      .then((response) => {
+        dispatch({
+          type: actionTypes.SET_SECRET_WORD,
+          payload: response.data,
+        });
+      });
   };
 };
